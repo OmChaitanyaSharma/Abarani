@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F2EEE7;
+  --foreground: #0A192F;
+  --color-navy: #0A192F;
+  --color-navy-dark: #071224;
+  --color-navy-light: #162C4E;
+  --color-gold: #C5A059;
+  --color-gold-dark: #8C6809;
+  --color-gold-light: #F3E5AB;
+  --color-ivory: #EDE8DE;
+  --color-ivory-dark: #E2DBD0;
+  --color-pearl: #FFFFFF;
+  --color-champagne: #EDE5D5;
+  --color-charcoal: #2D3748;
+  --color-charcoal-dark: #1A202C;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--color-navy);
+  --color-navy-dark: var(--color-navy-dark);
+  --color-navy-light: var(--color-navy-light);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-light: var(--color-gold-light);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-dark: var(--color-ivory-dark);
+  --color-pearl: var(--color-pearl);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-dark: var(--color-charcoal-dark);
+
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-poppins: var(--font-poppins), "Poppins", sans-serif;
+}
+
+/* Eliminate horizontal blowout on 360px viewports while preserving sticky positioning */
+html, body {
+  overflow-x: clip;
+  max-width: 100vw;
+  background-color: var(--background);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS Safari auto-zoom prevention: enforce minimum 16px font-size */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Ergonomic touch targets: ensure interactive controls meet WCAG 2.2 AA (min 44x44px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessible antique gold for text/icons on light ivory backgrounds (contrast ratio > 4.5:1) */
+.text-gold-antique {
+  color: #8C6809;
+}
+
+/* Focus Visible outlines */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A68037;
+}
+
+/* Apple-style squircle pill buttons */
+.btn-pill {
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-pill-navy {
+  background-color: var(--color-navy);
+  color: #FFFFFF;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn-pill-navy:hover {
+  background-color: var(--color-navy-dark);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 18px rgba(10, 25, 47, 0.25), 0 0 12px rgba(212, 175, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-pill-gold {
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  border: 1px solid #B89225;
+}
+
+.btn-pill-gold:hover {
+  background-color: #E2BF4A;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-pill-outline {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+}
+
+.btn-pill-outline:hover {
+  background-color: var(--color-navy);
+  color: #FFFFFF;
+  border-color: var(--color-navy);
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
+}
+
+/* Direction A: Heritage Swatch Card (Crisp White on Soft Warm Linen) */
+.card-swatch {
+  background-color: #FFFFFF;
+  border: 1.5px solid rgba(10, 25, 47, 0.18);
+  box-shadow: 0 2px 8px rgba(10, 25, 47, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-swatch:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 24px rgba(10, 25, 47, 0.08);
+  transform: translateY(-2px);
+}
+
